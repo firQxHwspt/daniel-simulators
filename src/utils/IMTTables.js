@@ -137,22 +137,22 @@ export let IMTTableIslands = {
             {
                 'range' : [121330, 165967],
                 'percentage': 2,
-                'discount': 2426.60,
+                'discount': 1213.30,
             },
             {
                 'range' : [165967, 226292],
                 'percentage': 5,
-                'discount': 7405.63,
+                'discount': 6192.33,
             },
             {
                 'range' : [226292, 377110],
                 'percentage': 7,
-                'discount': 11931.48,
+                'discount': 10718.18,
             },
             {
                 'range' : [377110, 754111],
                 'percentage': 8,
-                'discount': 15702.58,
+                'discount': 14489.28,
             },
             {
                 'range' : [754111, 1313000],
