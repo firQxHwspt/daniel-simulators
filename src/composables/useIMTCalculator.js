@@ -32,7 +32,7 @@ export function useIMTCalculator(location, purpose, amount){
         let IMTValue = (amount * (result.percentage / 100)) - result.discount;
         let stampTax = calculateStampTax(amount);
         let total = IMTValue + stampTax;
-        //add validation for exemption
+
         return {
             'percentage': result.percentage,
             'IMTValue': IMTValue,
