@@ -58,7 +58,7 @@ function calculateIMT(){
                 @keyup="calculateIMT"
                 class="font-comfortaa max-w-full text-sm w-full px-2 py-2 rounded-md border-2 border-gray-200 focus:outline-brand-red"
                 />
-                <span :class="{'bg-brand-red text-white': valueInputFocus}" class="absolute top-0 bottom-0 bg-gray-200 text-sm font-bold w-10 h-full right-0 flex flex-col justify-center items-center rounded-r-md">
+                <span :class="{'!bg-brand-red text-white': valueInputFocus}" class="absolute top-0 bottom-0 bg-gray-200 text-sm font-bold w-10 h-full right-0 flex flex-col justify-center items-center rounded-r-md">
                     €
                 </span>
             </div>
