@@ -8,8 +8,8 @@
 </script>
 
 <template>
-  <div class="pt-9 min-h-screen flex flex-wrap flex-col items-center">
-    <div class="max-w-4xl">
+  <div class="pt-9 flex flex-wrap flex-col items-center">
+    <div class="max-w-4xl w-5/6">
       <MaisValiasForm v-model="calculationData" />
       <MaisValiasDetails class="mt-6" v-if="calculationData.purchaseCost > 0 && calculationData.sellValue > 0" :simulationData="calculationData" />
     </div>
