@@ -1,4 +1,4 @@
-export let IMTTableContinental = {
+export const IMTTableContinental = {
     'purpose' : {
         'self' : [
             {
