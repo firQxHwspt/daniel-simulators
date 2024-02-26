@@ -148,7 +148,7 @@
                     {{ useEURFormat(taxCalculations.withoutMaisValia.taxableIncome) }}
                 </p>
                 <p class="font-bold font-muli w-28 text-right">
-                    {{ useEURFormat(taxCalculations.withMaisValia.taxableIncome) }}
+                    {{ useEURFormat(taxCalculations.withMaisValia.preCalculatedTotalIncome) }}
                 </p>
             </div>
         </div>

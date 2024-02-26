@@ -13,13 +13,13 @@ let sellInputFocus = ref(false);
 let extraSpendingFocus = ref(false);
 
 let purchaseValues = ref({
-    houseCost: 0,
+    houseCost: 150000,
     houseYear: new Date().getFullYear(),
     houseMonth: '1'
 });
 
 let sellValues = ref({
-    houseCost: 0,
+    houseCost: 200000,
     houseYear: new Date().getFullYear(),
     houseMonth: '1'
 });
