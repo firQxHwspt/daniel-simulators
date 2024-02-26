@@ -15,9 +15,13 @@ export function useMaisValiaTaxExemptionPercentage(sellValue, paidLoanAmount, in
         Exemption Percentage = 100 - (|V2 - V1| / V1) * 100
         The 100 - is because for some reason i'm calculating it the other way around
     */
-    if(invesmentValue !== null){
-        finalSellValue = sellValue - invesmentValue;
-        exemptionPercentage = (100 - Math.abs(((paidLoanAmount -  finalSellValue) / finalSellValue) * 100)).toFixed(2)
+    if(invesmentValue !== null && invesmentValue > 0){
+        finalSellValue = sellValue - paidLoanAmount;
+        if(invesmentValue > finalSellValue){
+            return 101;
+        }
+        let percentageDifference = Math.abs((invesmentValue - finalSellValue) / finalSellValue * 100);
+        exemptionPercentage = (100 - percentageDifference).toFixed(2);
         return exemptionPercentage;
     }
 

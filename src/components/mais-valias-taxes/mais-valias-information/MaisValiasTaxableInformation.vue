@@ -2,6 +2,7 @@
     import { useEURFormat } from '@/composables/useEURFormat';
     import { useMaisValiaTaxExemptionPercentage } from '@/composables/useMaisValiaTaxExemptionPercentage';
     import { useMaisValiaTaxCalculator } from '@/composables/useMaisValiaTaxCalculator';
+    import GenericInfo from '@/components/GenericInfo.vue'
     import { ref, toRef, watch } from 'vue';
     
     let props = defineProps({
@@ -33,8 +34,10 @@
                 Number(nv.value.amortizationValue),
                 Number(nv.value.reinvestAmount)
             );
-            
-            taxableMaisValia.value = taxableMaisValia.value - taxableMaisValia.value * (exemptionPercentage.value / 100);
+
+            if(exemptionPercentage.value <= 100){
+                taxableMaisValia.value = taxableMaisValia.value - taxableMaisValia.value * (exemptionPercentage.value / 100);
+            }
         }
 
         taxCalculations.value = useMaisValiaTaxCalculator(
@@ -78,12 +81,12 @@
         <div class="flex flex-row justify-between px-4 py-3 bg-green-600">
             <h4 class="font-bold text-medium text-white">Isenção</h4>
             <p class="font-bold font-muli text-white">
-                {{ exemptionPercentage }} %
+                {{ (exemptionPercentage > 100) ? 100 : exemptionPercentage }} %
             </p>
         </div>
     </div>
 
-    <div class="mb-10">
+    <div class="mb-10" v-if="exemptionPercentage <= 100">
         <h4 class="font-comfortaa mb-4 font-bold text-blue-600">
             Cálculo aproximado do Imposto a pagar
         </h4>
@@ -117,7 +120,7 @@
         </div>
     </div>
 
-    <div v-if="Object.keys(taxCalculations).length > 0">
+    <div v-if="Object.keys(taxCalculations).length > 0 && exemptionPercentage <= 100">
         <div class="flex flex-row justify-between gap-4 px-4 py-3 bg-slate-50" id="imt-value">
             <div></div>
             <div class="flex flex-row w-1/3 justify-end gap-4">
@@ -221,5 +224,14 @@
         </div>
 
     </div>
+
+    <GenericInfo
+    title="Mais-valia não dá lugar ao pagamento de imposto adicional"
+    v-if="exemptionPercentage > 100"
+    >
+        <p>
+            A mais-valia não dá lugar ao pagamento de imposto adicional, dado a isenção ser superior a 100%.
+        </p>
+    </GenericInfo>
 
 </template>
